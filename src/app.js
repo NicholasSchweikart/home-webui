@@ -12,9 +12,11 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 
+const baseURL = "https://schweikarthome.tplinkdns.com"
+
 const styles = theme => ({
   root: {
-    textAlign: 'center',
+    
   },
   appBar:{
     
@@ -23,10 +25,9 @@ const styles = theme => ({
     padding: theme.spacing.unit * 1,
     paddingTop:theme.spacing.unit *10,
   },
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 20,
-  },
+  grow:{
+    flexGrow: 1,
+  }
 });
 
 class App extends React.Component {
@@ -35,7 +36,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       token: '',
-      loggedIn: false,
+      loggedIn: true,
     };
   }
 
@@ -45,16 +46,14 @@ class App extends React.Component {
 
   render() {
     const {classes} = this.props;
+    
     return (
       <div className={classes.root}>
         <AppBar className={classes.appBar}>
           <Toolbar>
-            <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-              <MenuIcon />
-            </IconButton>
             <Typography variant="h6" color="inherit" className={classes.grow}>
-            Welcome Home
-          </Typography>
+            Login For Access
+            </Typography>
           </Toolbar>
         </AppBar>
         
@@ -74,7 +73,7 @@ class App extends React.Component {
 
   checkAuth = () => {
     console.log('checking authorization...');
-    axios.get('https://schweikarthome.tplinkdns.com/auth')
+    axios.get(`${baseURL}/auth`)
     .then(res=>{
       if(res.status === 200)
       {
@@ -83,9 +82,7 @@ class App extends React.Component {
       }
     })
     .catch(err => {
-      
         console.log('Cookie stale or gone...')
-      
     });
   }
 }
