@@ -36,7 +36,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       token: '',
-      loggedIn: true,
+      loggedIn: false,
     };
   }
 
