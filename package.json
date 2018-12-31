@@ -15,6 +15,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "postbuild": "rm -rf /var/www/schweikarthome.tplinkdns.com/html/* && cp build /var/www/schweikarthome.tplinkdns.com/html",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
