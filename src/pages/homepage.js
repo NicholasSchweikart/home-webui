@@ -40,7 +40,7 @@ class Homepage extends React.Component {
    }
 
   componentDidMount() {
-    
+    loadSystemState();
   }
   
   render() {
