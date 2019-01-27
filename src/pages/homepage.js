@@ -110,6 +110,17 @@ class Homepage extends React.Component {
       })
     }
   } 
+
+  loadSystemState = () => {
+    axios.get(`${baseURL}/control/state`)
+      .then(res=>{
+        
+        this.setState({armed:res.isArmed});
+      })
+      .catch(err=>{
+        console.log(`Failed to load system state: ${err}`)
+      })
+  }
 }
 
 Homepage.propTypes = {

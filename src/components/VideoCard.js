@@ -50,14 +50,16 @@ class LoginForm extends Component {
             color="primary"
           />
         </Toolbar>
-        <video data-dashjs-player autoplay muted src={this.props.src} className={classes.video} controls></video>
+        <video data-dashjs-player src={this.props.src} className={classes.video} controls></video>
       </Paper>
     );
   }
+
   toggleMotionEnable = event => {
     console.log('Toggle Motion Switch');
     this.setState({ motion_enabled: !this.state.motion_enabled })
   }
+  
 }
 export default withStyles(styles)(LoginForm);
 
